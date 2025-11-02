@@ -58,4 +58,4 @@ def ema_to_file(data: list[float], period: int = 5):
 
     with open(tema_file, "w") as file:
         for x in ema_data:
-            file.write(f"{x:.2f}")
+            file.write(f"{x:.2f}\n")
