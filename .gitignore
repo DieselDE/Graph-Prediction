@@ -1,2 +1,6 @@
 # data files
 *.tsv
+
+# temporary files
+temp.py
+__pycache__/prediction.cpython-313.pyc
