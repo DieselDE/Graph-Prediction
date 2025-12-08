@@ -4,3 +4,4 @@
 # temporary files
 temp.py
 __pycache__/prediction.cpython-313.pyc
+__pycache__/client.cpython-313.pyc

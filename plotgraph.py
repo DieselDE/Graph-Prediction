@@ -6,7 +6,7 @@ if __name__ == "__main__":
     actual_data = pr.read_data("test_data2.tsv")  # Your actual BTC prices
     #ema_data = pr.read_data("pr_ema.tsv")      # Hybrid predictions
     pattern_data = pr.read_data("pr_pattern.tsv") # Pattern-only predictions
-    tema_data = pr.read_data("pr_tema.tsv")       # TEMA-only predictions
+    #tema_data = pr.read_data("pr_tema.tsv")       # TEMA-only predictions
     
     # Create the plot
     plt.figure(figsize=(14, 8))
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     
     # Plot predictions
     #plt.plot(ema_data, label='EMA Prediction', color='blue', linewidth=1.5, linestyle='--', alpha=0.7)
-    plt.plot(tema_data, label='TEMA Prediction', color='green', linewidth=1.5, linestyle='--', alpha=0.7)
+    #plt.plot(tema_data, label='TEMA Prediction', color='green', linewidth=1.5, linestyle='--', alpha=0.7)
     plt.plot(pattern_data, label='Pattern Prediction', color='red', linewidth=1.5, linestyle='--', alpha=0.7)
     
     # Styling

@@ -42,35 +42,25 @@ if __name__ == "__main__":
     while(True):
         price = get_bitcoin_price()
         if price is not None:
-            #print(f"The current price of Bitcoin is: €{price}")
-            with open("test_data.tsv", "a") as f:
+            print(f"The current price of Bitcoin is: €{price}")
+            with open("test_data2.tsv", "a") as f:
                 f.write(str(price) + "\n")
             i += 1
             print(f"We are at {i} items in file")
+            
+            # Read your Bitcoin price data
+            data = pr.read_data("test_data2.tsv")
+
+            # Get prediction
+            prediction = []
+            if i % 5 == 0:
+                prediction = pr.find_pattern(data, 10, 5, 1)
+
+            print(f"Pattern prediction: €{prediction}")
+            with open("pr_pattern.tsv", "a") as g:
+                for j in range(len(prediction)):
+                    g.write(str(round(prediction[j], 2)) + "\n")
         else:
             print("Could not retrieve Bitcoin price.")
-        
-        # Read your Bitcoin price data
-        data = pr.read_data("test_data.tsv")
-
-        # Get prediction
-        prediction = pr.predict_next_price(
-            data,
-            pattern_length=10,    # Look at last 20 prices
-            tema_period=10,       # TEMA with 20 period
-            tema_weight=0.6      # Favor TEMA slightly (60/40)
-        )
-
-        print(f"Current price: €{data[-1]:.2f}")
-        print(f"\nTEMA prediction: €{prediction['tema_prediction']}")
-        with open("pr_tema.tsv", "a") as f:
-            f.write(str(prediction['tema_prediction']) + "\n")
-        print(f"Pattern prediction: €{prediction['pattern_prediction']}")
-        with open("pr_pattern.tsv", "a") as g:
-            g.write(str(prediction['pattern_prediction']) + "\n")
-        print(f"Hybrid prediction: €{prediction['hybrid_prediction']}")
-        with open("pr_comb.tsv", "a") as h:
-            h.write(str(prediction['hybrid_prediction']) + "\n")
-        print(f"Confidence: {prediction['confidence']}")
         
         time.sleep(60)
