@@ -43,18 +43,18 @@ if __name__ == "__main__":
         price = get_bitcoin_price()
         if price is not None:
             print(f"The current price of Bitcoin is: €{price}")
-            with open("test_data2.tsv", "a") as f:
+            with open("test_data.tsv", "a") as f:
                 f.write(str(price) + "\n")
             i += 1
             print(f"We are at {i} items in file")
             
             # Read your Bitcoin price data
-            data = pr.read_data("test_data2.tsv")
+            data = pr.read_data("test_data.tsv")
 
             # Get prediction
             prediction = []
             if i % 5 == 0:
-                prediction = pr.find_pattern(data, 10, 5, 1)
+                prediction = pr.find_pattern(data, 20, 5, 1)
 
             print(f"Pattern prediction: €{prediction}")
             with open("pr_pattern.tsv", "a") as g:

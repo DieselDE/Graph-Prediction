@@ -3,7 +3,7 @@ import prediction as pr
 
 if __name__ == "__main__":
     # Read all data files
-    actual_data = pr.read_data("test_data2.tsv")  # Your actual BTC prices
+    actual_data = pr.read_data("test_data.tsv")  # Your actual BTC prices
     #ema_data = pr.read_data("pr_ema.tsv")      # Hybrid predictions
     pattern_data = pr.read_data("pr_pattern.tsv") # Pattern-only predictions
     #tema_data = pr.read_data("pr_tema.tsv")       # TEMA-only predictions
