@@ -1,6 +1,7 @@
 import math
 from statistics import mean
 
+
 def read_data(file_name: str) -> list[float]:
     """Read price data from file."""
     with open(file_name, "r") as file:
@@ -38,6 +39,7 @@ def tema(data: list[float], period: int) -> list[float]:
 # ============= Pattern Recognition Functions =============
 
 def find_pattern(data: list[float], pattern_len: int = 10, prediction_len: int = 5, tolerance: int = 1) -> list[float] | None:
+    """Finds possible pattern for the next prediciton_len values based on earlier data"""
 
     if len(data) < pattern_len + prediction_len:
         print("data has less points than pattern_len + prediction_len")
