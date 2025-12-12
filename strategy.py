@@ -22,7 +22,7 @@ def buy_stock(data: list[float], tema: list[float], pattern: list[float], length
     
     print(f"Bying stock at {data[-1]}€")
     with open("stock_aquired.tsv", "a") as f:
-        f.write(data[-1])
+        f.write(str(data[-1]) + "\n")
 
 def sell_stock(data: list[float], tema: list[float], pattern: list[float], length: int = 5):
     """Calculets when to sell stock"""
@@ -45,4 +45,4 @@ def sell_stock(data: list[float], tema: list[float], pattern: list[float], lengt
     
     print(f"Selling stock at {data[-1]}€")
     with open("stock_sold.tsv", "a") as f:
-        f.write(data[-1])
+        f.write(str(data[-1]) + "\n")
