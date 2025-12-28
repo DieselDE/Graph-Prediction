@@ -1,9 +1,9 @@
 # data files
 *.tsv
+*.pkl
 
 # temporary files
 temp.py
 __pycache__/*pyc
 
 # temporary ingore
-simple_neural_network.py
